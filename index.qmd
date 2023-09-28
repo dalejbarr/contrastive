@@ -1,0 +1,40 @@
+---
+title: "Contrastive inference and common ground"
+author: "Dale Barr"
+institute: "*University of Glasgow*"
+title-slide-attributes:
+  data-background-image: img/titlescreen.png
+format: 
+  revealjs:
+    code-line-numbers: false
+    df-print: kable
+knitr:
+  opts_chunk:
+    echo: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+options(tidyverse.quiet=TRUE)
+library("tidyverse")
+
+options(width = 60)
+```
+
+## Heller, Grodner, and Tanenhaus (2008)
+
+![](img/heller-design.png){fig-align="center"}
+
+## Display Change Paradigm
+
+![](img/trial-design.png){fig-align="center"}
+
+## Experiment 1: Design
+
+![](img/exp-1-critical-displays.png){fig-align="center"}
+
+## Experiment 2: Design
+
+![](img/exp-2-critical-displays.png){fig-align="center"}
+
