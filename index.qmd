@@ -22,6 +22,8 @@ library("tidyverse")
 options(width = 60)
 ```
 
+## Embedded vs conflicting perspectives
+
 ## Heller, Grodner, and Tanenhaus (2008)
 
 ![](img/heller-design.png){fig-align="center"}
@@ -34,7 +36,52 @@ options(width = 60)
 
 ![](img/exp-1-critical-displays.png){fig-align="center"}
 
+## Eye data: Probabilities by time
+
+![](img/probplot-exp1.png){fig-align="center"}
+
+## Eye data: Log ratio
+
+![](img/exp1-log-ratio.png){fig-align="center"}
+
+## Response time
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](img/exp1-response-time.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+:::
+
+::::
+
 ## Experiment 2: Design
 
 ![](img/exp-2-critical-displays.png){fig-align="center"}
 
+## Eye data: Probabilities by time
+
+![](img/probplot-exp2.png){fig-align="center"}
+
+## Eye data: Log ratio
+
+![](img/exp2-log-ratio.png){fig-align="center"}
+
+## Eye data: Targets only
+
+![](img/targplot-exp2.png){fig-align="center"}
+
+## Response time
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](img/exp2-response-time.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+:::
+
+::::
