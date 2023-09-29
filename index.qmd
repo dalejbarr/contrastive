@@ -2,8 +2,6 @@
 title: "Contrastive inference and common ground"
 author: "Dale Barr"
 institute: "*University of Glasgow*"
-title-slide-attributes:
-  data-background-image: img/titlescreen.png
 format: 
   revealjs:
     code-line-numbers: false
@@ -22,11 +20,97 @@ library("tidyverse")
 options(width = 60)
 ```
 
-## Embedded vs conflicting perspectives
+## Sedivy et al. (1999) {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](img/sedivy_et-al_1999.png)
+
+::: {.center}
+*"pick up the tall glass"*
+:::
+
+:::
+
+::: {.column width="50%"}
+- visual-world eyetracking, 24 participants and 20 displays
+- main manipulation of *contextual support* for the size adjective: contrast was replaced with an unrelated object (file folder)
+- main finding: addressees identify the target prior to noun onset when contrastive interpretation was contextually supported
+:::
+
+::::
 
 ## Heller, Grodner, and Tanenhaus (2008)
 
 ![](img/heller-design.png){fig-align="center"}
+
+::: {.center}
+**"pick up the big duck"**
+:::
+
+- visual-world eyetracking
+- 16 subjects, 16 items (64 trials / condition)
+
+::: {.notes}
+given 64 trials / cond, a difference of .05 in target looks means that there were just 3 more trials with looks to the target in one condition than in another
+:::
+
+## HGT (2008): Results {.smaller}
+
+```{r}
+#| include: false
+.p1 <- sprintf("%0.3f", pf(4.77, 1, 15, lower.tail = FALSE))
+.p2 <- sprintf("%0.3f", pf(5.92, 1, 15, lower.tail = FALSE))
+
+.pa <- sprintf("%0.3f", pf(3.82, 1, 15, lower.tail = FALSE))
+.pb <- sprintf("%0.3f", pf(3.31, 1, 15, lower.tail = FALSE))
+
+.pc <- sprintf("%0.3f", pf(12.8, 1, 15, lower.tail = FALSE))
+.pd <- sprintf("%0.3f", pf(7.4, 1, 15, lower.tail = FALSE))
+```
+
+:::: {.columns}
+
+::: {.column width="60%"}
+![](img/heller_et-al_2008_results.png){fig-align="center"}
+:::
+
+::: {.column width="40%"}
+- target advantage ratio $\frac{T}{T + C}$
+
+- reported as replicating Sedivy et al. ($p < .05$); but actually didn't [$p_1 = `r .pa`$, $p_2 = `r .pb`$]
+- reliable interaction between number of contrasts and ground, $p_1 = `r .p1`$, $p_2 = `r .p2`$
+- reliable difference between two-privileged and two-shared, $p_1 = `r .pc`$, $p_2 = `r .pd`$
+
+- noisy data (difference of .1 = 6 trials!)
+:::
+
+::::
+
+## Types of Perspective Disparity
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: {.center}
+**embedded**
+:::
+
+![](img/embedded.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+
+::: {.center}
+**conflicting**
+:::
+
+![](img/conflicting.png){fig-align="center"}
+:::
+
+::::
 
 ## Display Change Paradigm
 
@@ -36,6 +120,44 @@ options(width = 60)
 
 ![](img/exp-1-critical-displays.png){fig-align="center"}
 
+## Experiment 1 {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: {.center}
+**Methods**
+:::
+
+- 32 participants
+- 48 stimulus items
+- 48 fillers
+- 1,536 trials (384 per condition)
+  - (.1 difference = 38 trials)
+- EyeLink 1000 remote eyetracker (250Hz)
+
+:::
+
+::: {.column width="50%"}
+
+::: {.center}
+**Analysis**
+:::
+
+- *pre-registered analysis*
+  - cluster-permutation analysis of eyetracking data (log ratio) from -400 to 200 ms after noun onset
+- additional analysis
+  - accuracy on filler trials
+  - response time
+:::
+
+::::
+ 
+::: {.center}
+`!?(@*/&#%→+=$£€123456789ABCDEFGHJKLMNPQRSTUVWXYZ`
+:::
+
 ## Eye data: Probabilities by time
 
 ![](img/probplot-exp1.png){fig-align="center"}
@@ -44,7 +166,7 @@ options(width = 60)
 
 ![](img/exp1-log-ratio.png){fig-align="center"}
 
-## Response time
+## Response time {.smaller}
 
 :::: {.columns}
 
@@ -53,9 +175,20 @@ options(width = 60)
 :::
 
 ::: {.column width="50%"}
+- LME with maximal random effects and LRT
+- no main effect of speaker, $\chi^2(1) = .48, p = .489$
+- no main effect of addressee, $\chi^2(1) = 3.77, p = .052$
+- speaker-by-addressee interaction, $\chi^2(1) = 12.26, p < .001$
+  - follow up: two mismatching conditions slower than the late/late condition, $\chi^2(1) = 8.98, p = .003$
 :::
 
 ::::
+
+## Discussion
+
+- Sedivy et al. not fully replicated under a more stringent test
+- Heller et al. also not replicated; mismatching perspectives showed *slower* responses and target looks than even the late/late conditions
+- but: is there a confound of cognitive load?
 
 ## Experiment 2: Design
 
@@ -73,7 +206,7 @@ options(width = 60)
 
 ![](img/targplot-exp2.png){fig-align="center"}
 
-## Response time
+## Response time {.smaller}
 
 :::: {.columns}
 
@@ -82,6 +215,70 @@ options(width = 60)
 :::
 
 ::: {.column width="50%"}
+- LME with maximal random effects and LRT
+- no main effect of addressee, $\chi^2(1) = 3.82, p = .051$
+- main effect of speaker, $\chi^2(1) = 7.38, p = .007$
+- speaker-by-addressee interaction, $\chi^2(1) = 20.30, p < .001$
+  - follow up: two mismatching conditions slower than the late/late condition, $\chi^2(1) = 4.36, p = .037$
 :::
 
 ::::
+
+## Everyone is wrong
+
+Under perspectival conflict, addressees...
+
+- could not effectively use a speaker's perspective to resolve temporary ambiguity (Heller, Grodner, Tanenhaus, 2008)
+- did *not* constrain comprehension to common ground (Clark & Carlson, 1981) 
+- were *not* egocentric (Keysar, Barr et al. 2000, 2003)
+- did not simultaneously integrate multiple perspectives (Hanna, Tanenhaus, Trueswell, 2003; Heller, Parisien, Stevenson, 2016)
+
+## Pragmatic deferral
+
+When perspectives are known to conflict, addressees adopt a cautious mode in which normal pragmatic inferences are suspended and they wait for disambiguating information?
+
+Perhaps our results reflect an inability to simultaneously maintain multiple conflicting perspectives in mind?
+
+(to be continued... someday...)
+
+## Contributors
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: {.center}
+**Experiment 1**
+:::
+
+Hanna Jarvinen
+
+Shannon McNee
+
+Beata Kovács
+
+Kieran J. O'Shea
+
+Alistair Beith
+
+:::
+
+::: {.column width="50%"}
+
+::: {.center}
+**Experiment 2**
+:::
+
+Heather Britain
+
+Qintong Li
+
+:::
+
+::::
+
+```{css}
+.center p {
+	text-align: center;
+}
+```
